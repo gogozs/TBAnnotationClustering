@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef struct TBQuadTreeNodeData {
-    double x;
+    double x; // coordinate
     double y;
     void* data;
 } TBQuadTreeNodeData;
@@ -17,7 +17,7 @@ TBQuadTreeNodeData TBQuadTreeNodeDataMake(double x, double y, void* data);
 
 typedef struct TBBoundingBox {
     double x0; double y0;
-    double xf; double yf;
+    double xf; double yf; // bottom right
 } TBBoundingBox;
 TBBoundingBox TBBoundingBoxMake(double x0, double y0, double xf, double yf);
 

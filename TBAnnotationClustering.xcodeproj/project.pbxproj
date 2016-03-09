@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -234,7 +234,7 @@
 				};
 			};
 			buildConfigurationList = E47A6E8417F62C0700A468D1 /* Build configuration list for PBXProject "TBAnnotationClustering" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -406,6 +406,7 @@
 				GCC_PREFIX_HEADER = "TBAnnotationClustering/TBAnnotationClustering-Prefix.pch";
 				INFOPLIST_FILE = "TBAnnotationClustering/TBAnnotationClustering-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -419,6 +420,7 @@
 				GCC_PREFIX_HEADER = "TBAnnotationClustering/TBAnnotationClustering-Prefix.pch";
 				INFOPLIST_FILE = "TBAnnotationClustering/TBAnnotationClustering-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

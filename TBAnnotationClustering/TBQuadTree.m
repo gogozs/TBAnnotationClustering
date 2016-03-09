@@ -12,13 +12,22 @@
 
 TBQuadTreeNodeData TBQuadTreeNodeDataMake(double x, double y, void* data)
 {
-    TBQuadTreeNodeData d; d.x = x; d.y = y; d.data = data;
+    TBQuadTreeNodeData d;
+    d.x = x;
+    d.y = y;
+    d.data = data;
+    
     return d;
 }
 
 TBBoundingBox TBBoundingBoxMake(double x0, double y0, double xf, double yf)
 {
-    TBBoundingBox bb; bb.x0 = x0; bb.y0 = y0; bb.xf = xf; bb.yf = yf;
+    TBBoundingBox bb;
+    bb.x0 = x0;
+    bb.y0 = y0;
+    bb.xf = xf;
+    bb.yf = yf;
+    
     return bb;
 }
 
@@ -86,10 +95,12 @@ bool TBQuadTreeNodeInsertData(TBQuadTreeNode* node, TBQuadTreeNodeData data)
         return true;
     }
 
+    // Check to see if the current node is a leaf, if it is, split
     if (node->northWest == NULL) {
         TBQuadTreeNodeSubdivide(node);
     }
 
+    // Traverse the tree
     if (TBQuadTreeNodeInsertData(node->northWest, data)) return true;
     if (TBQuadTreeNodeInsertData(node->northEast, data)) return true;
     if (TBQuadTreeNodeInsertData(node->southWest, data)) return true;
@@ -98,6 +109,7 @@ bool TBQuadTreeNodeInsertData(TBQuadTreeNode* node, TBQuadTreeNodeData data)
     return false;
 }
 
+// Pre-Order Tranversal
 void TBQuadTreeGatherDataInRange(TBQuadTreeNode* node, TBBoundingBox range, TBDataReturnBlock block)
 {
     if (!TBBoundingBoxIntersectsBoundingBox(node->boundingBox, range)) {
@@ -120,6 +132,7 @@ void TBQuadTreeGatherDataInRange(TBQuadTreeNode* node, TBBoundingBox range, TBDa
     TBQuadTreeGatherDataInRange(node->southEast, range, block);
 }
 
+// Pre-Order Traversal
 void TBQuadTreeTraverse(TBQuadTreeNode* node, TBQuadTreeTraverseBlock block)
 {
     block(node);
@@ -144,6 +157,7 @@ TBQuadTreeNode* TBQuadTreeBuildWithData(TBQuadTreeNodeData *data, int count, TBB
     return root;
 }
 
+// Post-Order Traversal
 void TBFreeQuadTreeNode(TBQuadTreeNode* node)
 {
     if (node->northWest != NULL) TBFreeQuadTreeNode(node->northWest);
